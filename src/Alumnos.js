@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { useAppDB } from "../../App";
+import { useAppDB } from "./App";
+
 
 const INITIALS = (name) =>
   name
@@ -235,8 +236,7 @@ function ModalExpediente({ alumno, onClose }) {
 
 export default ModalExpediente;
 
-import React, { useState } from "react";
-import toast from "react-hot-toast";
+
 
 // Asegúrate de que EMPTY_FORM está definido en el mismo archivo o importable
 // const EMPTY_FORM = { nombre: "", fechaNac: "", curp: "", grupo: "", tutor: "", tel: "", email: "", sangrá: "O+", alergias: "" };
@@ -389,4 +389,4 @@ function ModalFormAlumno({ alumno, grupos, onClose, onSave }) {
   );
 }
 
-export default ModalFormAlumno;
+export { ModalFormAlumno };
