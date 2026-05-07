@@ -3,13 +3,14 @@ import toast from "react-hot-toast";
 import { useAppDB } from "./App";
 
 
-const INITIALS = (name) =>
-  name
+const INITIALS = (name = "") => {
+  return name
     .split(" ")
-    .map((n) => n[0])
+    .map((n) => n[0] || "")
     .slice(0, 2)
     .join("")
     .toUpperCase();
+};
 
 const EMPTY_FORM = {
   nombre: "",
@@ -24,6 +25,7 @@ const EMPTY_FORM = {
 };
 
 function ModalExpediente({ alumno, onClose }) {
+  if (!alumno) return null;
   const db = useAppDB();
   const prom = db.promedioAlumno(alumno.id);
   const faltas = db.faltasAlumno(alumno.id);
@@ -234,7 +236,7 @@ function ModalExpediente({ alumno, onClose }) {
   );
 }
 
-export default ModalExpediente;
+
 
 
 
@@ -242,7 +244,9 @@ export default ModalExpediente;
 // const EMPTY_FORM = { nombre: "", fechaNac: "", curp: "", grupo: "", tutor: "", tel: "", email: "", sangrá: "O+", alergias: "" };
 
 function ModalFormAlumno({ alumno, grupos, onClose, onSave }) {
-  const [form, setForm] = useState(alumno ? { ...alumno } : { ...EMPTY_FORM });
+const [form, setForm] = useState(
+  alumno ? { ...alumno } : { ...EMPTY_FORM }
+);
 
   const set = (k, v) => setForm((p) => ({ ...p, [k]: v }));
 
@@ -388,5 +392,12 @@ function ModalFormAlumno({ alumno, grupos, onClose, onSave }) {
     </div>
   );
 }
+function Alumnos() {
+  return (
+    <div>
+      <h1 style={{ color: "black" }}> Alumnos</h1>
+    </div>
+  );
+}
 
-export { ModalFormAlumno };
+export default Alumnos;
