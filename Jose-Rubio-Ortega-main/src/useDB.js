@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect, useCallback } from "react";
 import { v4 as uuid } from "uuid";
 
-// ── seed data ─────────────────────────────────────────────────────────────────
+//seed data 
 const SEED_MAESTROS = [
     { id: "m1", nombre: "Ricardo Guzmán Pérez", email: "rguzmán@escuela.edu", tel: "5591234567", materias: ["Matemáticas", "Ciencias"], grupos: ["3A", "4A", "5B"], activo: true },
     { id: "m2", nombre: "Alicia Moreno Vda", email: "amoreno@escuela.edu", tel: "5592345678", materias: ["Español", "Historia"], grupos: ["1A", "1B", "2A"], activo: true },
@@ -45,10 +45,10 @@ const SEED_AVISOS = [{
     activo: true
 }, ];
 
-// ── hook principal ─────────────────────────────────────────────────────────────
+//  hook principal
 export function useDB() {
 
-    // ── STATES ────────────────────────────────────────────────────────────────
+    // STATES
     const [alumnos, setAlumnosState] = useState([]);
     const [maestros, setMaestrosState] = useState(SEED_MAESTROS);
     const [grupos, setGruposState] = useState(SEED_GRUPOS);
@@ -56,7 +56,7 @@ export function useDB() {
     const [asistencia, setAsistenciaState] = useState(SEED_ASISTENCIA);
     const [avisos, setAvisosState] = useState(SEED_AVISOS);
 
-    // ── CARGAR DATOS DESDE MYSQL ─────────────────────────────────────────────
+    //CARGAR DATOS DESDE MYSQL
     useEffect(() => {
         cargarDatos();
     }, []);
@@ -98,7 +98,7 @@ export function useDB() {
 
     };
 
-    // ── ALUMNOS ───────────────────────────────────────────────────────────────
+    // ALUMNOS
     const agregarAlumno = async(data) => {
 
         try {
@@ -155,7 +155,7 @@ export function useDB() {
 
     };
 
-    // ── MAESTROS ──────────────────────────────────────────────────────────────
+    //  MAESTROS
     const agregarMaestro = useCallback((data) => {
 
         const nuevo = {
@@ -181,7 +181,7 @@ export function useDB() {
 
     }, []);
 
-    // ── GRUPOS ────────────────────────────────────────────────────────────────
+    // GRUPOS
     const agregarGrupo = useCallback((data) => {
 
         const nuevo = {
@@ -206,7 +206,7 @@ export function useDB() {
 
     }, []);
 
-    // ── CALIFICACIONES ────────────────────────────────────────────────────────
+    // CALIFICACIONES 
     const guardarCalificacion = useCallback((data) => {
 
         setCalifState(p => {
@@ -246,7 +246,7 @@ export function useDB() {
 
     }, []);
 
-    // ── ASISTENCIA ────────────────────────────────────────────────────────────
+    // ASISTENCIA 
     const guardarAsistencia = useCallback((alumnoId, fecha, estado, maestroId) => {
 
         setAsistenciaState(p => {
@@ -296,7 +296,7 @@ export function useDB() {
 
     }, [asistencia]);
 
-    // ── AVISOS ────────────────────────────────────────────────────────────────
+    // AVISOS
     const agregarAviso = useCallback((data) => {
 
         const nuevo = {
@@ -322,7 +322,7 @@ export function useDB() {
 
     }, []);
 
-    // ── CÁLCULOS ──────────────────────────────────────────────────────────────
+    // CALCULOS
     const promedioAlumno = useCallback((alumnoId) => {
 
         const califs = calificaciones.filter(c =>
@@ -390,7 +390,7 @@ export function useDB() {
 
     }, [faltasAlumno, promedioAlumno, asistenciaPctAlumno]);
 
-    // ── FILTROS ───────────────────────────────────────────────────────────────
+    // FILTROS 
     const alumnosActivos = alumnos.filter(a => a.activo);
     const maestrosActivos = maestros.filter(m => m.activo);
     const avisosActivos = avisos.filter(a => a.activo);
@@ -431,7 +431,7 @@ export function useDB() {
         agregarAviso,
         eliminarAviso,
 
-        // cálculos
+        // calculos
         promedioAlumno,
         faltasAlumno,
         asistenciaPctAlumno,

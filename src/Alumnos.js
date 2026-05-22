@@ -240,8 +240,7 @@ function ModalExpediente({ alumno, onClose }) {
 
 
 
-// Asegúrate de que EMPTY_FORM está definido en el mismo archivo o importable
-// const EMPTY_FORM = { nombre: "", fechaNac: "", curp: "", grupo: "", tutor: "", tel: "", email: "", sangrá: "O+", alergias: "" };
+// Asegurate de que EMPTY_FORM esta definido en el mismo archivo o importable
 
 function ModalFormAlumno({ alumno, grupos, onClose, onSave }) {
 const [form, setForm] = useState(
