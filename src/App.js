@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+=======
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer
+} from "recharts";
+
+
+>>>>>>> ad6f0b5055634c92c96965f4874369017b4c5cb8
 import React, {
   useState,
   createContext,
@@ -27,7 +40,31 @@ import Avisos from "./Avisos";
 import Riesgo from "./Riesgo";
  
 import "./App.css";
+<<<<<<< HEAD
  
+=======
+
+const data = [
+{
+  nombre: "1A",
+  promedio: 8.5,
+},
+{
+  nombre: "1B",
+  promedio: 7.2,
+},
+{
+  nombre: "2A",
+  promedio: 9.1,
+},
+{
+  nombre: "2B",
+  promedio: 6.8,
+},
+];
+ 
+
+>>>>>>> ad6f0b5055634c92c96965f4874369017b4c5cb8
 export const DBContext = createContext(null);
  
 export const useAppDB = () =>

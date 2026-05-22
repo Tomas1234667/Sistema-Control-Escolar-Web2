@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // RIESGO.jsx 
 import React from "react";
 import { useAppDB } from "./App";
@@ -109,6 +110,10 @@ function Riesgo() {
         <
         /div>
     );
+=======
+function Riesgo() {
+  return <h1>Riesgo</h1>;
+>>>>>>> ad6f0b5055634c92c96965f4874369017b4c5cb8
 }
 
 export default Riesgo;
